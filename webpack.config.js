@@ -17,17 +17,17 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loaders: ['react-hot', 'babel?' + JSON.stringify({
-                    cacheDirectory: true,
-                    presets: ['es2015', 'react']
-                })],
-                exclude: /node_modules/,
-            }
-        ]
-    },
+       rules: [
+           {
+               test: /\.js$/,
+               loaders: ['react-hot-loader/webpack', 'babel-loader?' + JSON.stringify({
+                   cacheDirectory: true,
+                   presets: ['es2015', 'react']
+               })],
+               exclude: /node_modules/,
+           }
+       ]
+   },
 
     plugins: [
         new webpack.HotModuleReplacementPlugin()

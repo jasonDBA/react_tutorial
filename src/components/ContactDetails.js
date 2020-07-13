@@ -9,7 +9,7 @@ export default class ContactDetails extends React.Component {
         {this.props.contact.phone}</p>
       </div>
     );
-    const blank = (<div>Not selected</div>);
+    const blank = (<div>Nothing is selected</div>);
 
     return(
       <div>
