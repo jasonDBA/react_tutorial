@@ -40,6 +40,24 @@ export default class Contact extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
   }
 
+  // store the changed contact data into the local storage of a browser.
+  componentWillMount(){
+    const contactData = localStorage.contactData;
+
+    if(contactData){
+      this.setState({
+        contactData: JSON.parse(contactData)
+      })
+    }
+  }
+  // if the changed data is not same as the current data, then update it in the local storage
+  // so that the final contact data result is not gone after refreshing the browser.
+  componentDidUpdate(prevProps, prevState){
+    if(JSON.stringify(prevState.contactData) != JSON.stringify(this.state.contactData)){
+      localStorage.contactData = JSON.stringify(this.state.contactData);
+    }
+  }
+
   handleChange(e) {
     this.setState({
       keyword: e.target.value
@@ -123,7 +141,7 @@ export default class Contact extends React.Component {
           onRemove={this.handleRemove}
           onEdit={this.handleEdit}
         />
-      <ContactCreate
+        <ContactCreate
           onCreate={this.handleCreate}
         />
       </div>
