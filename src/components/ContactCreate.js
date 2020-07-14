@@ -36,18 +36,20 @@ export default class ContactCreate extends React.Component {
   render() {
     return(
       <div>
-        <h2>Create Contact</h2>
+        <h1>Create Contact</h1>
         <p>
           <input type='text' name='name' placeholder='Enter Name...'
                   value={this.state.name}
                   onChange={this.handleChange}
-                   />
+          />
+        </p>
+        <p>
           <input type='text' name='phone' placeholder='Enter Phone Number...'
                   value={this.state.phone}
                   onChange={this.handleChange}
-                   />
+          />
         </p>
-        <button onClick={this.handleClick}>Create</button>
+        <button onClick={this.handleClick}>CREATE</button>
       </div>
     );
   }
